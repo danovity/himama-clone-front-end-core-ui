@@ -133,6 +133,7 @@ export default function Dashboard(props) {
       <Row>
         <Col>
           <Suspense fallback={loading()}>
+            <h3 className="display-3">User: {user.emailAddress}</h3>
             <Jumbotron>
               {timeInAndOut === "never" ? (
                 <h3 className="display-3">Please Clock In to Your Shift</h3>
