@@ -36,8 +36,6 @@ export default function ClockInAndOutButton({
 
   if (!user) return null; // return error
 
-  console.log("ClockInAndOutButton", buttonType);
-
   return (
     <p className="lead">
       <Button

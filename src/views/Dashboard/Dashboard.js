@@ -4,6 +4,9 @@ import {
   Card,
   CardBody,
   CardHeader,
+  CardTitle,
+  CardSubtitle,
+  CardText,
   Col,
   Row,
   Table
@@ -133,24 +136,37 @@ export default function Dashboard(props) {
       <Row>
         <Col>
           <Suspense fallback={loading()}>
-            <h3 className="display-3">User: {user.emailAddress}</h3>
             <Jumbotron>
-              {timeInAndOut === "never" ? (
-                <h3 className="display-3">Please Clock In to Your Shift</h3>
-              ) : (
-                <h3 className="display-3">
-                  You Have{" "}
-                  {shiftActionType === "CLOCK_IN"
-                    ? "Clocked Out"
-                    : "Clocked In"}{" "}
-                  At{" "}
-                  {format(
-                    new Date(parseISO(timeInAndOut)),
-                    "MMM d, yyyy h:mma"
+              <Card style={{ width: "100%" }}>
+                <CardBody>
+                  <CardTitle style={{ fontSize: "2.5rem" }}>
+                    {user.emailAddress}
+                  </CardTitle>
+                  <CardSubtitle
+                    className="mb-2 text-muted"
+                    style={{ fontSize: "1.5rem" }}
+                  >
+                    Last Activity:{" "}
+                  </CardSubtitle>
+                  {timeInAndOut === "never" ? (
+                    <CardText style={{ fontSize: "1.5rem" }}>
+                      Please Clock In to Your Shift
+                    </CardText>
+                  ) : (
+                    <CardText style={{ fontSize: "1.5rem" }}>
+                      You Have{" "}
+                      {shiftActionType === "CLOCK_IN"
+                        ? "Clocked Out"
+                        : "Clocked In"}{" "}
+                      At{" "}
+                      {format(
+                        new Date(parseISO(timeInAndOut)),
+                        "MMM d, yyyy h:mma"
+                      )}
+                    </CardText>
                   )}
-                </h3>
-              )}
-
+                </CardBody>
+              </Card>
               <ClockInAndOutButton
                 toggleClockInAndOut={toggleClockInAndOut}
                 buttonType={buttonType}
@@ -173,7 +189,7 @@ export default function Dashboard(props) {
                 <Table
                   hover
                   responsive
-                  className="table-outline mb-0 d-none d-sm-table"
+                  className="table-outline mb-0 d-sm-table"
                 >
                   <thead className="thead-light">
                     <tr>

@@ -70,7 +70,7 @@ export default function Login() {
                   <CardGroup>
                     <Card className="p-4">
                       <CardBody>
-                        <Form>
+                        <Form onSubmit={handleSubmit}>
                           <h1>Login</h1>
                           <p className="text-muted">
                             Returning user, Please sign-in using your email
