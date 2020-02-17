@@ -20,7 +20,7 @@ const Page500 = React.lazy(() => import("./views/Pages/Page500"));
 const Logout = React.lazy(() => import("./views/Pages/Logout/Logout"));
 
 const client = new ApolloClient({
-  uri: "https://himama-clone-graphql-api.herokuapp.com/graphql"
+  uri: "https://timetrackingapp.api-hackernews-reloaded.tk/graphql"
 });
 
 class App extends Component {
